@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "approvedAt": "2026-08-27",
+  "method": "All units are editorial scenario constants, not claims about average human behavior. Results use category minutes per day × 365 ÷ unit minutes and nearest-integer rounding.",
+  "records": [
+    {"id":"books","name":"six-hour creative session","value":360,"unit":"minutes/session","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/360","rounding":"nearest-integer"},
+    {"id":"walks","name":"half-hour walk","value":30,"unit":"minutes/walk","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/30","rounding":"nearest-integer"},
+    {"id":"dinners","name":"slow dinner","value":90,"unit":"minutes/dinner","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/90","rounding":"nearest-integer"},
+    {"id":"calls","name":"twenty-minute call","value":20,"unit":"minutes/call","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/20","rounding":"nearest-integer"},
+    {"id":"naps","name":"power nap","value":20,"unit":"minutes/nap","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/20","rounding":"nearest-integer"},
+    {"id":"albums","name":"album listen","value":45,"unit":"minutes/listen","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/45","rounding":"nearest-integer"},
+    {"id":"tea","name":"unhurried cup of tea","value":15,"unit":"minutes/cup","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/15","rounding":"nearest-integer"},
+    {"id":"commutes","name":"city commute","value":40,"unit":"minutes/commute","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/40","rounding":"nearest-integer"},
+    {"id":"bedtimes","name":"bedtime story","value":30,"unit":"minutes/story","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/30","rounding":"nearest-integer"},
+    {"id":"blank","name":"entire hour left blank","value":60,"unit":"minutes/hour","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/60","rounding":"nearest-integer"},
+    {"id":"sunsets","name":"slow sunset pause","value":20,"unit":"minutes/pause","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/20","rounding":"nearest-integer"},
+    {"id":"chapters","name":"focused reading chapter","value":25,"unit":"minutes/chapter","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/25","rounding":"nearest-integer"},
+    {"id":"songs","name":"four-minute song","value":4,"unit":"minutes/song","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/4","rounding":"nearest-integer"},
+    {"id":"picnics","name":"two-hour picnic","value":120,"unit":"minutes/picnic","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/120","rounding":"nearest-integer"},
+    {"id":"recipes","name":"one-hour recipe","value":60,"unit":"minutes/recipe","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/60","rounding":"nearest-integer"},
+    {"id":"stretches","name":"ten-minute stretch","value":10,"unit":"minutes/stretch","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/10","rounding":"nearest-integer"},
+    {"id":"trainrides","name":"short train ride","value":25,"unit":"minutes/ride","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/25","rounding":"nearest-integer"},
+    {"id":"checkins","name":"thoughtful check-in","value":15,"unit":"minutes/check-in","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/15","rounding":"nearest-integer"},
+    {"id":"dreams","name":"ninety-minute sleep cycle","value":90,"unit":"minutes/cycle","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/90","rounding":"nearest-integer"},
+    {"id":"nothing","name":"quarter-hour owing nobody anything","value":15,"unit":"minutes/quarter-hour","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","sourceDate":"2026-08-27","licenseId":"MIT","formula":"dailyMinutes*365/15","rounding":"nearest-integer"}
+  ]
+}

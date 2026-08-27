@@ -1,0 +1,5 @@
+assetId	assetType	sourceUrl	sourceVersion	licenseId	status	reviewer	reviewedAt
+DAY-FIXTURE-001	data	project-authored://ideal-day-fixture	1	MIT	approved-fixture	user	2026-08-27
+DAY-FONT-001	font	system-font-stack://local	1	SYSTEM	approved-fixture	user	2026-08-27
+DAY-COMP-001	data	project-authored://ideal-day-lab/comparison-ledger	1	MIT	approved-production	user	2026-08-27
+DAY-OG-001	image	project-authored://ideal-day-lab/og.png	1	MIT	approved-production	user	2026-08-27

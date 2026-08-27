@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "fixtureOnly": true,
+  "examples": [
+    "Sleep deeply, make strange things, walk without a destination, eat with friends",
+    "Read, build, swim, cook, stare at clouds"
+  ],
+  "comparison": {
+    "minutesPerDay": 60,
+    "daysPerYear": 365,
+    "minutesPerLongMovie": 120,
+    "result": 182.5
+  }
+}

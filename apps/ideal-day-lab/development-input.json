@@ -1,0 +1,9 @@
+{
+  "projectId": "ideal-day-lab",
+  "prdVersion": "2.0.0",
+  "stage": "D2-exit-candidate",
+  "defaultLocale": "en-US",
+  "fixture": "content/fixture.json",
+  "rights": "content/rights-ledger.tsv",
+  "openGaps": ["two physical-device runs", "North American copy approval", "Eazo Mobile AI/speech acceptance evidence", "human aesthetic and release sign-off"]
+}
