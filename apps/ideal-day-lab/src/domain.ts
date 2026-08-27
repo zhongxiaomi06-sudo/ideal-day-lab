@@ -34,16 +34,16 @@ export type PublicPlan = {
 };
 
 export const categories: Record<CategoryId, { label: string; color: string }> = {
-  sleep: { label: 'Sleep', color: '#816BFF' },
-  'work-study': { label: 'Make & learn', color: '#FF785A' },
+  sleep: { label: 'Sleep', color: '#9485FF' },
+  'work-study': { label: 'Make & learn', color: '#FF866B' },
   care: { label: 'Care', color: '#F4C95D' },
-  commute: { label: 'Getting around', color: '#6B8299' },
+  commute: { label: 'Getting around', color: '#8BA6BF' },
   food: { label: 'Food', color: '#FF9CC9' },
   exercise: { label: 'Move', color: '#67E8A5' },
   social: { label: 'People', color: '#5ED5FF' },
   play: { label: 'Play', color: '#D8FF4F' },
   personal: { label: 'For me', color: '#B6C2D9' },
-  unallocated: { label: 'Open time', color: '#323542' },
+  unallocated: { label: 'Open time', color: '#6F7787' },
 };
 
 const keywordMap: Array<[CategoryId, RegExp]> = [

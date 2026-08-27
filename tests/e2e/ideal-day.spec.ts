@@ -57,3 +57,64 @@ test('mobile visual system keeps imagery, navigation and touch targets intact at
   expect(actionBox!.y + actionBox!.height).toBeLessThanOrEqual(navigationBox!.y);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
 });
+
+test('responsive audit covers compact phones through wide desktop', async ({ page }) => {
+  const viewports = [
+    { width: 320, height: 568 },
+    { width: 360, height: 800 },
+    { width: 430, height: 932 },
+    { width: 768, height: 1024 },
+    { width: 1024, height: 768 },
+    { width: 1440, height: 1000 },
+  ];
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await page.goto('/');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), `${viewport.width}px compose overflow`).toBeLessThanOrEqual(1);
+    if (viewport.width <= 780) {
+      const targetSizes = await page.locator('nav button').evaluateAll((buttons) => buttons.map((button) => {
+        const box = button.getBoundingClientRect();
+        return { width: box.width, height: box.height };
+      }));
+      for (const size of targetSizes) {
+        expect(size.width).toBeGreaterThanOrEqual(44);
+        expect(size.height).toBeGreaterThanOrEqual(44);
+      }
+    }
+    await page.getByRole('button', { name: 'Build my 24 hours' }).click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), `${viewport.width}px editor overflow`).toBeLessThanOrEqual(1);
+    await page.getByRole('button', { name: 'See the ridiculous scale' }).click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), `${viewport.width}px scale overflow`).toBeLessThanOrEqual(1);
+  }
+});
+
+test('core palette meets WCAG AA text and non-text contrast thresholds', async ({ page }) => {
+  const audit = await page.evaluate(() => {
+    const parseHex = (value: string) => {
+      const hex = value.trim().replace('#', '');
+      return [0, 2, 4].map((offset) => Number.parseInt(hex.slice(offset, offset + 2), 16) / 255);
+    };
+    const luminance = (value: string) => {
+      const [red, green, blue] = parseHex(value).map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4);
+      return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+    };
+    const contrast = (first: string, second: string) => {
+      const [lighter, darker] = [luminance(first), luminance(second)].sort((a, b) => b - a);
+      return (lighter + 0.05) / (darker + 0.05);
+    };
+    const styles = getComputedStyle(document.documentElement);
+    const token = (name: string) => styles.getPropertyValue(name).trim();
+    const background = token('--bg');
+    const surface = token('--surface');
+    return [
+      { name: 'primary text', ratio: contrast(token('--text'), background), minimum: 4.5 },
+      { name: 'muted text', ratio: contrast(token('--muted'), surface), minimum: 4.5 },
+      { name: 'small metadata', ratio: contrast(token('--subtle'), surface), minimum: 4.5 },
+      { name: 'accent text', ratio: contrast(token('--acid'), background), minimum: 4.5 },
+      { name: 'component boundary', ratio: contrast(token('--line'), surface), minimum: 3 },
+    ];
+  });
+
+  for (const result of audit) expect(result.ratio, result.name).toBeGreaterThanOrEqual(result.minimum);
+});
