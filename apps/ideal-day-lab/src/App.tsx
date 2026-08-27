@@ -28,6 +28,15 @@ function Logo() {
   return <div className="brand" aria-label="Eazo Ideal Day Lab"><span>e</span><b>ideal day</b></div>;
 }
 
+function DayReel() {
+  return (
+    <figure className="day-reel">
+      <img src="./day-parts.png" alt="Four moments across a day: blue dawn, a sunlit creative desk, a golden-hour path, and a quiet midnight room" />
+      <figcaption aria-hidden="true"><span>06</span><span>11</span><span>18</span><span>24</span></figcaption>
+    </figure>
+  );
+}
+
 function Timeline({ blocks }: { blocks: TimeBlock[] }) {
   return (
     <div className="timeline-wrap">
@@ -161,11 +170,12 @@ export function App() {
       <a className="skip-link" href="#main">Skip to your day</a>
       <header className="topbar">
         <Logo />
+        <p className="mobile-mark">24H · LOCAL</p>
         <nav aria-label="Main navigation">
-          <button className={view === 'compose' ? 'active' : ''} onClick={() => setView('compose')}>Start</button>
-          <button className={view === 'edit' ? 'active' : ''} disabled={!plan} onClick={() => setView('edit')}>Day</button>
-          <button className={view === 'discover' ? 'active' : ''} disabled={!plan} onClick={() => setView('discover')}>Scale</button>
-          <button className={view === 'library' ? 'active' : ''} onClick={() => setView('library')}>Library <span>{savedPlans.length}</span></button>
+          <button aria-label="Start" className={view === 'compose' ? 'active' : ''} onClick={() => setView('compose')}><span className="nav-glyph" aria-hidden="true">✦</span><span className="nav-label">Start</span></button>
+          <button aria-label="Day" className={view === 'edit' ? 'active' : ''} disabled={!plan} onClick={() => setView('edit')}><span className="nav-glyph" aria-hidden="true">◴</span><span className="nav-label">Day</span></button>
+          <button aria-label="Scale" className={view === 'discover' ? 'active' : ''} disabled={!plan} onClick={() => setView('discover')}><span className="nav-glyph" aria-hidden="true">↗</span><span className="nav-label">Scale</span></button>
+          <button aria-label={`Library ${savedPlans.length}`} className={view === 'library' ? 'active' : ''} onClick={() => setView('library')}><span className="nav-glyph" aria-hidden="true">▣</span><span className="nav-label">Library</span><span className="nav-count">{savedPlans.length}</span></button>
         </nav>
       </header>
 
@@ -182,6 +192,7 @@ export function App() {
             </div>
             <div className="composer-card">
               <div className="card-label"><span>01</span><b>DESCRIBE THE FEELING</b></div>
+              <DayReel />
               <label htmlFor="day-description">What belongs in your ideal day?</label>
               <textarea id="day-description" maxLength={2000} rows={7} value={description} onChange={(event) => setDescription(event.target.value)} placeholder="Sleep deeply, make something, walk nowhere in particular…" />
               <div className="composer-meta"><span>{description.length} / 2,000</span><button type="button" className="voice" onClick={startVoice}>● Add by voice</button></div>

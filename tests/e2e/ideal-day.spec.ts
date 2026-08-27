@@ -39,3 +39,21 @@ test('mobile viewport has no horizontal overflow across primary screens', async 
   await page.getByRole('button', { name: 'See the ridiculous scale' }).click();
   await noOverflow();
 });
+
+test('mobile visual system keeps imagery, navigation and touch targets intact at 320px', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.reload();
+  const reel = page.locator('.day-reel img');
+  await expect(reel).toBeVisible();
+  expect(await reel.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+  const navigation = page.getByRole('navigation', { name: 'Main navigation' });
+  await expect(navigation).toBeVisible();
+  await expect(navigation).toHaveCSS('position', 'fixed');
+  const primaryAction = page.getByRole('button', { name: 'Build my 24 hours' });
+  await expect(primaryAction).toBeVisible();
+  const [actionBox, navigationBox] = await Promise.all([primaryAction.boundingBox(), navigation.boundingBox()]);
+  expect(actionBox).not.toBeNull();
+  expect(navigationBox).not.toBeNull();
+  expect(actionBox!.y + actionBox!.height).toBeLessThanOrEqual(navigationBox!.y);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
+});
