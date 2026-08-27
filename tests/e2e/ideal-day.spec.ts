@@ -43,9 +43,14 @@ test('mobile viewport has no horizontal overflow across primary screens', async 
 test('mobile visual system keeps imagery, navigation and touch targets intact at 320px', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 568 });
   await page.reload();
-  const reel = page.locator('.day-reel img');
+  const reel = page.locator('.day-reel');
   await expect(reel).toBeVisible();
-  expect(await reel.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+  const videos = reel.locator('video');
+  expect(await videos.count()).toBe(3);
+  for (let index = 0; index < 3; index += 1) {
+    await expect.poll(() => videos.nth(index).evaluate((video: HTMLVideoElement) => video.readyState)).toBeGreaterThanOrEqual(2);
+    expect(await videos.nth(index).evaluate((video: HTMLVideoElement) => video.muted && video.loop && video.playsInline)).toBe(true);
+  }
   const navigation = page.getByRole('navigation', { name: 'Main navigation' });
   await expect(navigation).toBeVisible();
   await expect(navigation).toHaveCSS('position', 'fixed');
@@ -112,6 +117,7 @@ test('core palette meets WCAG AA text and non-text contrast thresholds', async (
       { name: 'muted text', ratio: contrast(token('--muted'), surface), minimum: 4.5 },
       { name: 'small metadata', ratio: contrast(token('--subtle'), surface), minimum: 4.5 },
       { name: 'accent text', ratio: contrast(token('--acid'), background), minimum: 4.5 },
+      { name: 'paper card text', ratio: contrast(token('--ink'), token('--paper')), minimum: 7 },
       { name: 'component boundary', ratio: contrast(token('--line'), surface), minimum: 3 },
     ];
   });

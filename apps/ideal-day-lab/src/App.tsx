@@ -29,10 +29,27 @@ function Logo() {
 }
 
 function DayReel() {
+  const reduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const moments = [
+    { src: './day-dawn.mp4', time: '06:40', label: 'WAKE' },
+    { src: './day-make.mp4', time: '11:20', label: 'MAKE' },
+    { src: './day-focus.mp4', time: '20:10', label: 'EXHALE' },
+  ];
   return (
-    <figure className="day-reel">
-      <img src="./day-parts.png" alt="Four moments across a day: blue dawn, a sunlit creative desk, a golden-hour path, and a quiet midnight room" />
-      <figcaption aria-hidden="true"><span>06</span><span>11</span><span>18</span><span>24</span></figcaption>
+    <figure className="day-reel" aria-label="A moving day diary from morning ritual to focused creative work">
+      {reduceMotion ? (
+        <img src="./day-parts.png" alt="Four still moments across a day, from dawn to a quiet night" />
+      ) : (
+        <div className="day-reel-clips" aria-hidden="true">
+          {moments.map((moment) => (
+            <span className="day-clip" key={moment.src}>
+              <video src={moment.src} autoPlay muted loop playsInline preload="metadata" />
+              <b>{moment.time}</b><em>{moment.label}</em>
+            </span>
+          ))}
+        </div>
+      )}
+      <figcaption>YOUR DAY, IN MOTION <span>03 MOMENTS · 09 SEC</span></figcaption>
     </figure>
   );
 }

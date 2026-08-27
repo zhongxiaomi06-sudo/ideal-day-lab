@@ -8,15 +8,18 @@
   "rollbackBuildVersion": "0.1.0-fixture",
   "files": [
     {"path":"fixture.json","sha256":"ab5329ec19dd496675534deaa9a5500844251f198aa5f2f8e79b58cbf4a130a4","bytes":327,"contentType":"application/json","licenseId":"MIT","sourceIds":["ideal-day-lab:fixture.json"]},
-    {"path":"rights-ledger.tsv","sha256":"e3c3e636b880e529d2b50e21883da0d2374a1829c590b68c2f36e85256996a16","bytes":582,"contentType":"text/tab-separated-values","licenseId":"LEDGER","sourceIds":["ideal-day-lab:rights-ledger.tsv"]},
+    {"path":"rights-ledger.tsv","sha256":"7d28d06546970411caad0283584f89be6bd8e5eee801ddc091a7b52e639a6c72","bytes":1008,"contentType":"text/tab-separated-values","licenseId":"LEDGER","sourceIds":["ideal-day-lab:rights-ledger.tsv"]},
     {"path":"comparison-ledger.json","sha256":"cfe740b8d63004e08cd87b5717a5ac667ff0ccc71b9638a6cd92a7c29d8c1234","bytes":5343,"contentType":"application/json","licenseId":"MIT","sourceIds":["ideal-day-lab:comparison-ledger"]},
     {"path":"og.png","sha256":"c52ede5ef7cab07a91ca49846759d8e667c3f3c1bf01011aac1a3bb72e0413af","bytes":1097597,"contentType":"image/png","licenseId":"MIT","sourceIds":["ideal-day-lab:og.png"]},
     {"path":"day-parts.png","sha256":"471de95f3c6516d6c6a5b3c0de7cc5f323e5966df4414c96cb010d548bdf31b1","bytes":2248870,"contentType":"image/png","licenseId":"MIT","sourceIds":["ideal-day-lab:day-parts.png"]},
+    {"path":"day-dawn.mp4","sha256":"e4eabb9229a2bc0c51cdc4494a98ef29764832c425ad82c835caac54260193cd","bytes":53842,"contentType":"video/mp4","licenseId":"PEXELS","sourceIds":["pexels:9786287"]},
+    {"path":"day-make.mp4","sha256":"245d19a3503ad8838c3c0a5d4d9a948c3a7fb8fe78a3a3bc38ceaef13bc4b2bf","bytes":39049,"contentType":"video/mp4","licenseId":"PEXELS","sourceIds":["pexels:8706227"]},
+    {"path":"day-focus.mp4","sha256":"1614a2e7d19382d662f8d8a699e803c9c4035885379e56da6de8d5e52d5ca2b7","bytes":84698,"contentType":"video/mp4","licenseId":"PEXELS","sourceIds":["pexels:7010279"]},
     {"path":"sw.js","sha256":"a536ac1a9c2bfc65f8855c988e3817c6b9f13b9583fb5f14331897bffaa7d85e","bytes":740,"contentType":"application/javascript","licenseId":"MIT","sourceIds":["ideal-day-lab:sw.js"]}
   ],
   "datasets": [
     {"datasetId":"ideal-day-lab-fixture","version":"1","retrievedAt":"2026-08-27","sourceUrl":"project-authored://ideal-day-lab","licenseId":"MIT","transformVersion":"identity-1","outputSha256":"ab5329ec19dd496675534deaa9a5500844251f198aa5f2f8e79b58cbf4a130a4"},
     {"datasetId":"ideal-day-comparison-ledger","version":"1","retrievedAt":"2026-08-27","sourceUrl":"project-authored://ideal-day-lab/comparison-ledger","licenseId":"MIT","transformVersion":"editorial-units-1","outputSha256":"cfe740b8d63004e08cd87b5717a5ac667ff0ccc71b9638a6cd92a7c29d8c1234"}
   ],
-  "totalBytes": 3353459
+  "totalBytes": 3531474
 }

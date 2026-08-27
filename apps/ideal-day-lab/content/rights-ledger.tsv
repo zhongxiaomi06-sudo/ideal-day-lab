@@ -4,3 +4,6 @@ DAY-FONT-001	font	system-font-stack://local	1	SYSTEM	approved-fixture	user	2026-
 DAY-COMP-001	data	project-authored://ideal-day-lab/comparison-ledger	1	MIT	approved-production	user	2026-08-27
 DAY-OG-001	image	project-authored://ideal-day-lab/og.png	1	MIT	approved-production	user	2026-08-27
 DAY-VISUAL-001	image	project-authored://ideal-day-lab/day-parts.png	1	MIT	approved-production	user	2026-08-27
+DAY-VIDEO-001	video	https://www.pexels.com/video/a-woman-drinking-coffee-in-the-morning-9786287/	9786287	PEXELS	approved-production	user	2026-08-27
+DAY-VIDEO-002	video	https://www.pexels.com/video/notebook-and-pen-on-a-desk-8706227/	8706227	PEXELS	approved-production	user	2026-08-27
+DAY-VIDEO-003	video	https://www.pexels.com/video/woman-using-a-laptop-and-writing-7010279/	7010279	PEXELS	approved-production	user	2026-08-27
